@@ -150,7 +150,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Meme" id="3oX-BU-eTQ" userLabel="Create Meme Navigation">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Bj0-07-h7D"/>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="gkv-h0-IaO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="gkv-h0-IaO">
                             <connections>
                                 <action selector="shareButtonClicked:" destination="TE5-9C-eyG" id="H3R-xX-oSs"/>
                             </connections>
