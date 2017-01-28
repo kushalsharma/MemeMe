@@ -13,7 +13,8 @@ import UIKit
 extension CreateMemeController {
     func keyboardWillShow(_ notification:Notification) {
         if shouldUpdateView {
-            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+            toolbar.isHidden = true
+            view.frame.origin.y = 0 - getKeyboardHeight(notification) + 30
         }
     }
     
@@ -29,7 +30,8 @@ extension CreateMemeController {
     
     func keyboardWillDisappear(_ notification:Notification) {
         if shouldUpdateView {
-            view.frame.origin.y += getKeyboardHeight(notification)
+            toolbar.isHidden = false
+            view.frame.origin.y = 0
         }
     }
     

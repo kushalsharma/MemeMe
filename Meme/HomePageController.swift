@@ -23,6 +23,5 @@ class HomePageController: UIViewController {
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "createMeme", sender: nil)
     }
-    
 }
 

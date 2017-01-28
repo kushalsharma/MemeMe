@@ -24,20 +24,26 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
         shareButton.isEnabled = false
-        
-        topTextView.defaultTextAttributes = getMemeTextAttributes(fontName: "HelveticaNeue-CondensedBlack")
-        bottomTextView.defaultTextAttributes = getMemeTextAttributes(fontName: "HelveticaNeue-CondensedBlack")
-        topTextView.textAlignment = NSTextAlignment.center
-        bottomTextView.textAlignment = NSTextAlignment.center
         topTextView.delegate = self
         bottomTextView.delegate = self
+        
+        setUpTextViews(font: "HelveticaNeue-CondensedBlack")
+    }
+    
+    func setUpTextViews(font: String) {
+        topTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
+        bottomTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
+        topTextView.textAlignment = NSTextAlignment.center
+        bottomTextView.textAlignment = NSTextAlignment.center
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
     
@@ -91,11 +97,7 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
     
     func fontSelected(action: UIAlertAction) {
         let font: String = action.title!
-        topTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
-        bottomTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
-        
-        topTextView.textAlignment = NSTextAlignment.center
-        bottomTextView.textAlignment = NSTextAlignment.center
+        setUpTextViews(font: font)
     }
     
     func getMemeTextAttributes(fontName: String) -> [String: Any] {
