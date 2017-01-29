@@ -30,13 +30,6 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
         setUpTextViews(font: "HelveticaNeue-CondensedBlack")
     }
     
-    func setUpTextViews(font: String) {
-        topTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
-        bottomTextView.defaultTextAttributes = getMemeTextAttributes(fontName: font)
-        topTextView.textAlignment = NSTextAlignment.center
-        bottomTextView.textAlignment = NSTextAlignment.center
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         subscribeToKeyboardNotifications()
@@ -127,5 +120,15 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
         let controller = UIActivityViewController(activityItems: [memeImageToShare], applicationActivities: nil)
         self.present(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = completionHandler
+    }
+    
+    func setUpTextViews(font: String) {
+        configureTextField(textField: topTextView, font: font)
+        configureTextField(textField: bottomTextView, font: font)
+    }
+    
+    func configureTextField(textField: UITextField, font: String) {
+        textField.defaultTextAttributes = getMemeTextAttributes(fontName: font)
+        textField.textAlignment = NSTextAlignment.center
     }
 }
