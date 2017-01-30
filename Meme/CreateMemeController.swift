@@ -71,7 +71,7 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
             break
         }
         pickerController.delegate = self
-        self.present(pickerController, animated: true, completion: nil)
+        present(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func fontsClicked(_ sender: UIBarButtonItem) {
@@ -112,13 +112,13 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)
         return false
     }
     @IBAction func shareButtonClicked(_ sender: UIBarButtonItem) {
         memeImageToShare = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memeImageToShare], applicationActivities: nil)
-        self.present(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = completionHandler
     }
     

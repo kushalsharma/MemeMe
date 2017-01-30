@@ -19,13 +19,13 @@ extension CreateMemeController {
     func save(image: UIImage) {
         // Create the meme
         let meme = Meme(topText: topTextView.text!, bottomText: bottomTextView.text!, originalImage: photoImageView.image!, memedImage: image)
-        print(meme.topText)
+        MemeStore.sharedInstace.saveMeme(newMeme: meme)
     }
     
     func generateMemedImage() -> UIImage {
         // Hide toolbar and navigation
         toolbar.isHidden = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -35,7 +35,7 @@ extension CreateMemeController {
         
         // Show toolbar and navigation
         toolbar.isHidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }
