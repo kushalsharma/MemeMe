@@ -9,12 +9,10 @@
 import UIKit
 
 class TableHomePageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     let cellReuseIdentifier = "memeCell"
-    
     @IBOutlet weak var myTableView: UITableView!
-    
     var memeStore: MemeStore? = nil
+    var selectedRow: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +48,15 @@ class TableHomePageController: UIViewController, UITableViewDelegate, UITableVie
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        
-        let destinationVC = DetailMemeController()
-        destinationVC.indexOfItem = index
-        
+        selectedRow = indexPath.row
         performSegue(withIdentifier: "showDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showDetails"){
+        let destinationVC = segue.destination as! DetailMemeController
+            destinationVC.indexOfItem = selectedRow
+        }
     }
 }
 

@@ -101,7 +101,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AT3-jJ-rXD" firstAttribute="leading" secondItem="6Ao-Zx-g4e" secondAttribute="leading" id="9lW-Fe-ccv"/>
                             <constraint firstAttribute="bottom" secondItem="AT3-jJ-rXD" secondAttribute="bottom" id="BZe-v7-lwM"/>

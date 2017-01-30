@@ -14,7 +14,7 @@ extension CreateMemeController {
     func keyboardWillShow(_ notification:Notification) {
         if shouldUpdateView {
             toolbar.isHidden = true
-            view.frame.origin.y = 0 - getKeyboardHeight(notification) + 30
+            view.frame.origin.y = 0 - getKeyboardHeight(notification) + KEYBOARD_SHIFT_BUFFER
         }
     }
     

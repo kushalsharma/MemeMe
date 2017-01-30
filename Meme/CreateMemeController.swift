@@ -19,6 +19,7 @@ class CreateMemeController: UIViewController, UITextFieldDelegate {
     
     var shouldUpdateView: Bool = false
     var memeImageToShare: UIImage = UIImage()
+    let KEYBOARD_SHIFT_BUFFER: CGFloat = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()

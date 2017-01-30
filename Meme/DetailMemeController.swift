@@ -10,7 +10,7 @@ import UIKit
 
 class DetailMemeController: UIViewController {
 
-    var indexOfItem: Int = 0
+    var indexOfItem: Int?
     var memeStore: MemeStore? = nil
     
     @IBOutlet weak var memeImageView: UIImageView!
@@ -22,7 +22,7 @@ class DetailMemeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        memeImageView.image =  memeStore?.getMemeAtIndex(index: indexOfItem).memedImage
+        memeImageView.image =  memeStore?.getMemeAtIndex(index: indexOfItem!).memedImage
         tabBarController?.tabBar.isHidden = true
     }
     
